@@ -1,0 +1,255 @@
+/* Enhanced responsive styles with specific breakpoints for 700px and 300px */
+
+/* Base responsive improvements */
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.min-h-screen {
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh;
+}
+
+/* Small mobile devices (300px) */
+@media (max-width: 350px) {
+  /* Container adjustments */
+  .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Typography scaling */
+  h1,
+  .text-3xl,
+  .text-4xl,
+  .text-5xl,
+  .text-6xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2,
+  .text-2xl,
+  .text-3xl {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+  }
+
+  p,
+  .text-lg,
+  .text-base {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Spacing adjustments */
+  .py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .gap-8,
+  .gap-12 {
+    gap: 1rem !important;
+  }
+
+  .mb-16 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Component adjustments */
+  .rounded-2xl {
+    border-radius: 0.75rem !important;
+  }
+
+  .p-6,
+  .p-8 {
+    padding: 1rem !important;
+  }
+
+  /* Header adjustments */
+  header .h-10,
+  header .w-10 {
+    height: 2rem !important;
+    width: 2rem !important;
+  }
+
+  /* Button adjustments */
+  button[size="lg"] {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+
+  /* Card adjustments */
+  .card-content {
+    padding: 0.75rem !important;
+  }
+
+  /* Image adjustments */
+  .w-64,
+  .h-64 {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  /* Tabs adjustments */
+  .tabs-list {
+    flex-wrap: wrap !important;
+  }
+
+  .tabs-trigger {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Medium mobile to small tablet (700px) */
+@media (max-width: 700px) and (min-width: 351px) {
+  /* Container adjustments */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Typography scaling */
+  h1,
+  .text-4xl,
+  .text-5xl,
+  .text-6xl {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2,
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Spacing adjustments */
+  .py-20 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .mb-16 {
+    margin-bottom: 2rem !important;
+  }
+
+  .gap-8,
+  .gap-12 {
+    gap: 1.5rem !important;
+  }
+
+  /* Component adjustments */
+  .p-6,
+  .p-8 {
+    padding: 1.25rem !important;
+  }
+
+  /* Grid adjustments */
+  .grid-cols-2,
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Ensure touch targets are large enough */
+@media (max-width: 768px) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  /* Improve form elements on mobile */
+  form .space-y-6 {
+    margin-bottom: 2rem;
+  }
+
+  label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+}
+
+/* Fix for mobile navigation */
+@media (max-width: 768px) {
+  .mobile-nav-button {
+    display: block !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+}
+
+/* Fix for hero section on small screens */
+@media (max-width: 768px) {
+  #hero {
+    min-height: 80vh !important;
+  }
+
+  .hero-image-container {
+    height: 200px !important;
+  }
+}
+
+/* Fix for portfolio grid on small screens */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Fix for testimonial section on small screens */
+@media (max-width: 768px) {
+  .testimonial-container {
+    flex-direction: column !important;
+  }
+}
+
+/* Fix for contact section on small screens */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column !important;
+  }
+}
+
+/* Fix for footer on small screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  .footer-links {
+    margin-top: 1rem !important;
+    justify-content: center !important;
+  }
+}
+
+/* Fix for image scaling */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for overflow issues */
+.overflow-hidden {
+  overflow: hidden !important;
+}

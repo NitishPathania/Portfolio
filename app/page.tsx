@@ -88,45 +88,51 @@ export default function Home() {
   const projects = [
     {
       title: "Bruno Pharma",
-      category: " Shopify + Web",
-      image: "/placeholder.svg?height=600&width=800",
+      category:  ["Web", "Shopify"],
+      image: "/bmd.png",
       description: " An e-commerce store built with Shopify (backend) and Next.js (frontend), designed for health supplements. Fast, clean, and built for conversions.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
+      link:"https://brunomd.com/"
     },
     {
       title: "The Mediterranean Life",
-      category: "Web",
-      image: "/placeholder.svg?height=600&width=800",
+      category: ["Web","Shopify"],
+      image: "/md.png",
       description: " A modern travel blog and booking site for Mediterranean getaways. Clean layout, smooth user experience, and focused on storytelling + marketing.",
       tech: ["React", "Node.js", "MongoDB", "Express.js", "shopify"],
+      link:"https://blog-bmd-mdnextjs.vercel.app/"
     },
     {
       title: "Astar8",
-      category: "Mobile App",
-      image: "/placeholder.svg?height=600&width=800",
+      category: ["Web", "Mobile"],
+      image: "/astar.jpeg",
       description: " A beautifully designed astrological + numerology app that helps users generate personalized readings and compatibility reports. Intuitive and user-friendly.",
       tech: ["React", "JavaScript", "React-native", "Node.js", "MongoDB", "Express.js", "Firebase"],
+      link:"https://be.astar8.com/"
     },
     {
       title: "GuardX",
-      category: "Mobile + Web",
-      image: "/placeholder.svg?height=600&width=800",
+      category:  ["Web", "Mobile"],
+      image: "/guard.png",
       description: " A smart visitor management system for residential societies. This SaaS product simplifies visitor tracking and enhances security with real-time logging and mobile alerts.",
       tech: ["React", "JavaScript", "Node.js", "MongoDB", "Express.js", "Firebase"],
+      link:"https://be.guardx.us/ "
     },
     {
       title: "Foodeus",
-      category: "Mobile + Web",
-      image: "/placeholder.svg?height=600&width=800",
+      category:  ["Web", "Mobile"],
+      image: "/food.png",
       description: " A local food discovery platform that helps users find and explore food items near them. Clean UX and real-time suggestions to satisfy any craving.",
       tech: ["Next.js", "MongoDB", "Google cloud API"],
+      link:"https://v0-foodeus.vercel.app/"
     },
     {
       title: "SWIF",
-      category: "Mobile + Web",
-      image: "/placeholder.svg?height=600&width=800",
+      category:  ["Web", "Mobile"],
+      image: "/swif.jpeg",
       description: " A robust SaaS platform for field service businesses. From task assignments to real-time tracking, SWIF helps companies manage operations with ease and clarity.",
       tech: ["React Native", "Node.js", "Socket.io", "React", "JavaScript", "MongoDB", "Express.js", "Firebase"],
+      link:"https://dev.swif.in/"
     },
   ]
 
@@ -136,9 +142,9 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
         <div className="container mx-auto px-4 py-3 sm:py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center text-white font-bold text-lg sm:text-xl">
-              QQD
-            </div>
+          <div className="h-10 w-10 sm:h-10 sm:w-10 rounded-lg bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center text-white font-medium text-sm sm:text-base">
+  QQD
+</div>
             <span className="font-bold text-base sm:text-xl hidden sm:inline-block">Quick Quality Developers</span>
           </Link>
 
@@ -224,16 +230,19 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.5 }}
                 className="w-full md:w-1/2 h-60 sm:h-80 flex items-center justify-center"
               >
-                <div className="relative w-full max-w-xs sm:max-w-md aspect-square m-10">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-gray-900 via-transparent to-transparent z-10"></div>
+                <div className="relative w-full max-w-xs sm:max-w-md aspect-square ">
+                  {/* Gradient overlay */}
+                  <div className="absolute  bg-gradient-to-tr from-gray-900 via-transparent to-transparent z-10"></div>
+
+                  {/* Image fills the container */}
                   <Image
-                    src="/placeholder.svg?height=600&width=600"
+                    src="/project.jpeg"
                     alt="Code visualization"
-                    width={600}
-                    height={600}
-                    className="object-contain"
+                    fill
+                    className="object-contain z-0 rounded-lg"
                   />
                 </div>
+
               </motion.div>
             </div>
           </div>
@@ -253,14 +262,15 @@ export default function Home() {
               <div className="w-full md:w-1/3 flex justify-center">
                 <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-emerald-500/20">
                   <Image
-                    src="/placeholder.svg?height=400&width=400"
+                    src="/about.jpg"
                     alt="Developer portrait"
-                    width={400}
-                    height={400}
-                    className="object-cover"
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-full"
                   />
                 </div>
               </div>
+
 
               <div className="w-full md:w-2/3">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 inline-block bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-blue-500">
@@ -523,8 +533,7 @@ export default function Home() {
               {["Web", "Mobile", "Shopify"].map((category) => (
                 <TabsContent key={category} value={category} className="mt-6 sm:mt-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 portfolio-grid">
-                    {projects
-                      .filter((project) => project.category === category)
+                    {projects.filter((project) => project.category.includes(category))
                       .map((project, index) => (
                         <ProjectCard key={index} project={project} index={index} />
                       ))}
@@ -668,7 +677,7 @@ export default function Home() {
             </div>
 
             <div className="flex space-x-4 sm:space-x-6 mb-4 sm:mb-0 footer-links">
-              <a  href="mailto:t8mdotadu@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:t8mdotadu@gmail.com" className="text-gray-400 hover:text-white transition-colors">
                 <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
                 <span className="sr-only">Email</span>
               </a>
@@ -711,6 +720,12 @@ function ProjectCard({ project, index }) {
       viewport={{ once: true, margin: "-100px" }}
       className="group"
     >
+       <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full"
+      >
       <Card className="overflow-hidden bg-gray-800/50 border-gray-700 hover:border-emerald-500/50 transition-all h-full">
         <div className="relative aspect-video overflow-hidden">
           <Image
@@ -718,7 +733,7 @@ function ProjectCard({ project, index }) {
             alt={project.title}
             width={800}
             height={600}
-            className="object-cover w-full h-full transition-transform group-hover:scale-105"
+            className="object-contain  w-full h-full transition-transform group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
           <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 bg-emerald-500/90 text-white text-xs px-2 py-1 rounded-full">
@@ -736,7 +751,7 @@ function ProjectCard({ project, index }) {
             ))}
           </div>
         </CardContent>
-      </Card>
+      </Card></a>
     </motion.div>
   )
 }
